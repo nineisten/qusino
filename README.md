@@ -10,7 +10,6 @@
 - **Legal**: Sweepstakes model with no-purchase-necessary entry, age (21+) and geolocation restrictions.
 
 ## 1. System Overview
-**System**: 
 - **MVP Features**:
   - User registration/login via Qubic wallet.
   - Poker room: Multi-table Texas Hold'em with real-time gameplay and chat.
