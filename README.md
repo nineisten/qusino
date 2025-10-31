@@ -103,7 +103,7 @@ Public Key Login
 
 ## **8. FULL API ENDPOINTS (v1)**
 
-> **Base URL**: `https://api.qusino.com/v1`  
+> **Base URL**: `https://api.qusino.com`  
 > **Auth**: `Bearer <jwt>`  
 > **WebSocket**: `wss://live.qusino.com`
 
