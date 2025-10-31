@@ -1,4 +1,4 @@
-# **Qusino – Final Unified Architecture Outline**  
+# **Qusino Architecture Outline**  
 **Version**: 1.2 – **Production-Ready | Admin-Integrated | Secure & Scalable**
 
 ---
