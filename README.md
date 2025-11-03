@@ -403,13 +403,13 @@ graph TD
 graph TD
     A[Token Model] --> B{Platform?}
     B -->|.com| C[STAR = 1,000 QUBIC<br/>Q = 1:1 Redeemable]
-    B -->|.us| D[STAR = Fun Only<br/>Qs = Prize-Eligible (Free)]
+    B -->|.us| D[STAR = Fun Only<br/>Qs = Prize-Eligible - Free]
     C --> E[Get Tokens: Deposit, Buy, Bonuses, Marketplace]
     D --> F[Get Tokens: Buy Packs, Free Bonuses, Mail-In, Social]
-    E --> G[Bonuses: First (1K+100), Daily (500+50), Social (200/100), Milestones]
-    F --> H[Bonuses: First (500K+50), Daily (250K+25), Social (100K+10), Milestones (500K+50)]
-    G --> I[Mint: BONUS.mint() On-Chain<br/>Redeem: Q → QUBIC (KYC)]
-    H --> J[Mint: Virtual Ledger<br/>Redeem: Qs → Cash (Min 100, ID Verify)]
+    E --> G[Bonuses: First (1K+100), Daily - 500+50, Social - 200/100, Milestones]
+    F --> H[Bonuses: First (500K+50), Daily - 250K+25, Social - 100K+10, Milestones - 500K+50]
+    G --> I[Mint: BONUS.mint() On-Chain<br/>Redeem: Q → QUBIC - KYC]
+    H --> J[Mint: Virtual Ledger<br/>Redeem: Qs → Cash - Min 100, ID Verify]
 ```
 
 ---
