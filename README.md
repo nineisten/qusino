@@ -443,6 +443,94 @@ graph TD
 ```
 
 ---
+# High-Level Poker Room Flow Chart  
+**2–9 Players • In-Game Chat • Live Support**
+
+```mermaid
+graph TD
+    A[User Enters Lobby] --> B{Select Room Type}
+    
+    B --> C[Cash Games]
+    B --> D[Tournaments]
+    B --> E[Private Tables]
+    B --> F[Practice Mode]
+    
+    C --> G[Filter by Stakes<br/>Players: 2–9<br/>Speed]
+    D --> H[View Schedule<br/>and Formats]
+    E --> I[Create or Join<br/>via Invite Code]
+    F --> J[Practice Mode<br/>STAR Only]
+    
+    G --> K[Choose Table<br/>2–9 Players]
+    H --> K
+    I --> K
+    J --> K
+    
+    K --> L{Seat Available?}
+    L -->|Yes| M[Join Table<br/>2–9 Players Max]
+    L -->|No| N[Waitlist<br/>or Auto-Seat]
+    
+    M --> O[Buy-In Screen]
+    O --> P{Model?}
+    P -->|Real-Money| Q[Pay with Q<br/>or STAR]
+    P -->|Sweepstakes| R[Use STAR<br/>or Qs]
+    
+    Q --> S[Confirm Buy-In]
+    R --> S
+    S --> T[Enter Game<br/>Table: 2–9 Players<br/>Chat + Support Enabled]
+    
+    T --> U[Gameplay Loop]
+    U --> V[Hand Dealt<br/>to 2–9 Players]
+    V --> W[Betting Round<br/>15–30s Clock]
+    W --> X{All Actions Complete?}
+    X -->|Yes| Y[Next Street<br/>or Showdown]
+    X -->|No| W
+    Y --> Z[Pot Awarded]
+    Z --> AA[Update Balances<br/>Real-Time]
+    AA --> BB[New Hand<br/>Auto-Deal]
+    
+    %% Chat Integration
+    T --> CHAT[In-Game Chat Panel<br/>Table Chat + Dealer Messages]
+    CHAT --> SEND[Send Message<br/>Emoji, @Mention, Mute]
+    SEND --> MOD[Auto-Moderation<br/>Profanity Filter, Spam Block]
+    MOD --> DISPLAY[Messages Appear<br/>Pinned Dealer Notes]
+    
+    %% Support Integration
+    T --> SUPPORT[Support Button<br/>Live Help or FAQ]
+    SUPPORT --> TICKET[Open Support Ticket<br/>Attach Screenshot]
+    TICKET --> RESPONSE[Agent Response<br/>In-Game Chat or Email]
+    RESPONSE --> RESOLVED[Issue Resolved<br/>Resume Play]
+    
+    %% Player Actions
+    BB --> CC{Player Action?}
+    CC -->|Sit Out| DD[Auto-Fold<br/>Until Return]
+    CC -->|Rebuy| EE[Add Chips<br/>Min/Max Limits]
+    CC -->|Leave Table| FF[Cash Out<br/>or Forfeit]
+    CC -->|Chat| CHAT
+    CC -->|Help| SUPPORT
+    
+    DD --> BB
+    EE --> BB
+    FF --> GG[Return to Lobby]
+    
+    N --> K
+    GG --> B
+```
+
+---
+
+## Feature Summary
+
+| Feature | Implementation |
+|--------|----------------|
+| **Players per Table** | **2–9** (Heads-Up to Full Ring) |
+| **In-Game Chat** | Real-time table chat, emoji, @mentions, mute, dealer messages, auto-moderation |
+| **Live Support** | In-game **Support Button** → ticket with screenshot → agent response via chat/email |
+| **Game Flow** | Auto-dealt hands, 15–30s action clock, rebuy, sit-out, leave |
+| **Cross-Model** | Same flow for Real-Money and Sweepstakes — differs only in currency |
+| **No Parentheses or Pipes** | All labels clean and Mermaid-safe |
+| **Dark Text on Light Backgrounds** | Ensured via standard Mermaid rendering |
+
+---
 
 ## Game Launch Portal (Phase 2)
 
@@ -490,5 +578,3 @@ graph TD
 
 ---
 
-**All diagrams are fully tested and render correctly in Mermaid Live Editor.**  
-The **Phased Roadmap** is now a **clear, scannable table** — ideal for executive summaries and documentation.
