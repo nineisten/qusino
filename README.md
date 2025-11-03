@@ -920,24 +920,100 @@ graph TD
 **キー**：両モデルはインフラ、ソーシャル機能、投票を共有 — 収益化とブロックチェーン利用は分岐。
 
 ## 初回ユーザー体験フロー
+**This is a **Mermaid.js parsing error on GitHub** — caused by **HTML `<br>` tags inside node labels**.
+
+---
+
+## Error Breakdown
+
+```
+Parse error on line 2:
+... A[IPジオルーティングによるユ"<br>"ーザーエントリー] B{所在地...
+-----------------------^
+Expecting 'SQE', ..., got 'STR'
+```
+
+### What It Means:
+- Mermaid **does NOT allow raw HTML like `<br>` inside `[square brackets]`**.
+- GitHub’s Markdown renderer sees `"<br>"` as **invalid syntax** → **fails to parse**.
+- It expects a **closing `]`** immediately after text, not HTML.
+
+---
+
+## Problem Line (from your code):
+```mermaid
+A[IPジオルーティングによるユ<br>ーザーエントリー] --> B{所在地？}
+```
+
+Even though you wrote:
+```mermaid
+A[ユーザーエントリー via IPジオルーティング]
+```
+→ Some systems (like chat, copy-paste, or old Mermaid) **auto-escape or insert `<br>`** when line breaks appear.
+
+But **you must NEVER use `<br>` inside `[ ]`**.
+
+---
+
+## Correct Fix (GitHub-Safe)
+
+### Use **`\n`** for line breaks inside `[]` or `()` — **NO `<br>`**
 
 ```mermaid
 graph TD
-    A[IPジオルーティングによるユ"<br>"ーザーエントリー] B{所在地？}
-    B -->|非米国：Qusino.com - C[公開鍵またはフィアットログイン"<br/>"@ユーザー名設定]
-    B -->|米国：Qusino.us - D[無料メール登録"<br/>"@ユーザー名設定]
+    A[ユーザーエントリー via IPジオルーティング] --> B{所在地？}
+    B -->|"非米国：Qusino.com"| C("公開鍵またはフィアットログイン\n@ユーザー名設定")
+    B -->|"米国：Qusino.us"| D("無料メール登録\n@ユーザー名設定")
     C --> E[ボーナス：1,000 STAR + 100 Q]
     D --> F[ボーナス：500K STAR + 50 Qs]
-    E --> G[毎日ログイン：500 STAR + 50 Q<br/>7日連続倍増]
-    F --> H[毎日ログイン：250K STAR + 25 Qs<br/>7日連続倍増]
+    E --> G[毎日ログイン：500 STAR + 50 Q\n7日連続倍増]
+    F --> H[毎日ログイン：250K STAR + 25 Qs\n7日連続倍増]
     G --> I[ポーカー/ゲームプレイ → 勝利]
     H --> I
     I --> J{交換？}
-    J -->|.com - K[キャッシャー → Q出金 → KYC → QUBIC/フィアット]
-    J -->|.us - L[Qs交換 → ID認証 → 現金/ギフトカード<br/>または郵送で無料Qs]
+    J -->|.com| K[キャッシャー → Q出金 → KYC → QUBIC/フィアット]
+    J -->|.us| L[Qs交換 → ID認証 → 現金/ギフトカード\nまたは郵送で無料Qs]
     K --> M[ログアウト]
     L --> M
 ```
+
+---
+
+## Rules for GitHub + Mermaid + Japanese
+
+| Do This | Don’t Do This |
+|----------|----------------|
+| `A[Line1\nLine2]` | `A[Line1<br>Line2]` |
+| `("日本語\n改行")` | `("日本語<br/>改行")` |
+| `|"ラベル"|` | `|ラベル<br/>|` |
+
+> **`\n` = line break** (GitHub renders it correctly)  
+> **`<br>` = HTML → breaks parser**
+
+---
+
+## Final Working Version (Copy-Paste into GitHub)
+
+```mermaid
+graph TD
+    A[ユーザーエントリー via IPジオルーティング] --> B{所在地？}
+    B -->|"非米国：Qusino.com"| C("公開鍵またはフィアットログイン\n@ユーザー名設定")
+    B -->|"米国：Qusino.us"| D("無料メール登録\n@ユーザー名設定")
+    C --> E[ボーナス：1,000 STAR + 100 Q]
+    D --> F[ボーナス：500K STAR + 50 Qs]
+    E --> G[毎日ログイン：500 STAR + 50 Q\n7日連続倍増]
+    F --> H[毎日ログイン：250K STAR + 25 Qs\n7日連続倍増]
+    G --> I[ポーカー/ゲームプレイ → 勝利]
+    H --> I
+    I --> J{交換？}
+    J -->|.com| K[キャッシャー → Q出金 → KYC → QUBIC/フィアット]
+    J -->|.us| L[Qs交換 → ID認証 → 現金/ギフトカード\nまたは郵送で無料Qs]
+    K --> M[ログアウト]
+    L --> M
+```
+
+---
+
 
 ## 技術スタック
 
