@@ -300,7 +300,7 @@ From daily login bonuses to **STAR/Qs-powered game governance**, NFT dividends, 
 | **In-dApp Liquidity Pool** | **25%** | Auto-injected into QUSINO/QUBIC pair / Virtual liquidity for **Qs** redemptions |
 | **Shareholders (QUSINO Stakers & NFT Holders)** | **35%** | **Weekly dividends in Q**, buyback-and-burn, staking rewards / Prize pools from STAR sales |
 
-```
+```mermaid
 pie title Qusino Dual Revenue Flywheel
     "Treasury (25%)" : 25
     "CCF – Community (15%)" : 15
