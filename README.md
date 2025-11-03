@@ -469,7 +469,7 @@ graph TD
     A[API Base<br/>api.qusino.com | api.qusino.us<br/>Auth: Bearer JWT] --> B[Auth<br/>POST /auth/login<br/>POST /bonus/claim]
     A --> C[User & Social<br/>GET /user/me<br/>POST /buddies<br/>POST /chat/send]
     A --> D[Games<br/>GET /poker/rooms<br/>POST /join<br/>POST /games/vote]
-    A --> E[Marketplace (Phase 3)<br/>GET /marketplace<br/>POST /buy]
+    A --> E[Marketplace Phase 3<br/>GET /marketplace<br/>POST /buy]
     A --> F[Cashier<br/>GET /wallet<br/>POST /deposit<br/>POST /mailin]
     A --> G[WebSocket: wss://live.qusino<br/>Real-Time Game & Chat]
 ```
