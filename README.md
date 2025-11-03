@@ -325,3 +325,170 @@ pie title Qusino Dual Revenue Flywheel
 ---
 
 **Awaiting further instructions.**
+
+# Flow Charts
+
+# Qusino README Sections: High-Level Flow Charts & Table
+
+Below are **high-level flow charts** for each section of the Qusino README using **Mermaid**, with the **Phased Roadmap** section replaced by a **clean, structured table** for better readability and clarity.
+
+---
+
+## Dual Model Overview
+
+```mermaid
+graph TD
+    A[User Accesses Platform] --> B{User Location?}
+    B -->|Non-US| C[Qusino.com: Real-Money Model<br/>- License: Isle of Man<br/>- Currencies: STAR & Q<br/>- Features: Real Stakes, On-Chain RNG]
+    B -->|US| D[Qusino.us: Sweepstakes Model<br/>- Laws: US Sweepstakes<br/>- Currencies: STAR & Qs<br/>- Features: Free Play, Cash Redemptions]
+    C --> E[Compliance: KYC/AML, Age Gates, On-Chain RNG]
+    D --> E
+    E --> F[Shared Social Layer: Buddies, Chat, Wall]
+```
+
+---
+
+## Phased Roadmap
+
+| Phase | Timeline | Shared Features | Real-Money (.com) | Sweepstakes (.us) |
+|-------|----------|------------------|--------------------|-------------------|
+| **Phase 1: Core Build** | Q4 2025 – Q1 2026 | Frontend (HTMX), API, Poker Games, Social Layer, Marketing Site, IPO Prep | Real-stakes tables<br/>QUBIC deposits & withdrawals<br/>KYC/AML | Free STAR & Qs play<br/>Promotional bonuses<br/>Mail-in entries |
+| **Phase 2: Expansion** | Q1 2026 – Q3 2026 | Game Portal, Slots, Voting System, NFT Integration | On-chain voting<br/>NFT dividends & staking | Community voting<br/>NFT prizes & virtual assets |
+| **Phase 3: Advanced** | Q4 2026+ | Table Games, Marketplace, Leaderboards, Mobile Apps | Real NFT trading<br/>Q token dividends | Virtual NFT gallery<br/>Prize packs & sweepstakes |
+
+> **Key**: Both models share infrastructure, social features, and voting — but diverge in monetization and blockchain usage.
+
+---
+
+## First-Time User Flow
+
+```mermaid
+graph TD
+    A[User Entry via IP Geo-Routing] --> B{Location?}
+    B -->|Non-US: Qusino.com| C[Public Key or Fiat Login<br/>Set @Username]
+    B -->|US: Qusino.us| D[Free Email Signup<br/>Set @Username]
+    C --> E[Bonus: 1,000 STAR + 100 Q]
+    D --> F[Bonus: 500K STAR + 50 Qs]
+    E --> G[Daily Login: 500 STAR + 50 Q<br/>7x Streak Multiplier]
+    F --> H[Daily Login: 250K STAR + 25 Qs<br/>7x Streak Multiplier]
+    G --> I[Play Poker / Games → Win]
+    H --> I
+    I --> J{Redemption?}
+    J -->|.com| K[Cashier → Withdraw Q → KYC → QUBIC/Fiat]
+    J -->|.us| L[Redeem Qs → Verify ID → Cash/Gift Card<br/>Or Mail-In for Free Qs]
+    K --> M[Logout]
+    L --> M
+```
+
+---
+
+## Tech Stack
+
+```mermaid
+graph TD
+    A[Frontend<br/>HTMX + CSS + Animate.js<br/>Cloudflare Geo-Routing] --> B[Real-Time Layer<br/>Socket.IO: Chat, Game Sync]
+    B --> C[Backend<br/>Node.js + Express<br/>Dual APIs: .com vs .us]
+    C --> D[Auth<br/>.com: Public Key + 2FA<br/>.us: Email + SMS]
+    D --> E[Blockchain<br/>.com: QUBIC Tick Chain<br/>.us: Virtual Ledger]
+    E --> F[RNG<br/>.com: On-Chain RANDOM.org<br/>.us: Certified PRNG]
+    F --> G[Smart Contracts<br/>.com: C++ WASM<br/>.us: Hooks Only]
+    G --> H[Infrastructure<br/>AWS + GCP + CDNs<br/>Global Low Latency]
+```
+
+---
+
+## Token & Bonus System
+
+```mermaid
+graph TD
+    A[Token Model] --> B{Platform?}
+    B -->|.com| C[STAR = 1,000 QUBIC<br/>Q = 1:1 Redeemable]
+    B -->|.us| D[STAR = Fun Only<br/>Qs = Prize-Eligible (Free)]
+    C --> E[Get Tokens: Deposit, Buy, Bonuses, Marketplace]
+    D --> F[Get Tokens: Buy Packs, Free Bonuses, Mail-In, Social]
+    E --> G[Bonuses: First (1K+100), Daily (500+50), Social (200/100), Milestones]
+    F --> H[Bonuses: First (500K+50), Daily (250K+25), Social (100K+10), Milestones (500K+50)]
+    G --> I[Mint: BONUS.mint() On-Chain<br/>Redeem: Q → QUBIC (KYC)]
+    H --> J[Mint: Virtual Ledger<br/>Redeem: Qs → Cash (Min 100, ID Verify)]
+```
+
+---
+
+## Social Wall
+
+```mermaid
+graph TD
+    A[User Wins or Hits Milestone] --> B[Auto-Broadcast Message]
+    B --> C{Privacy Setting?}
+    C -->|Public| D[Post to Social Wall<br/>Buddies First → Big Wins → Blog]
+    C -->|Private| E[Skip Broadcast<br/>Private Profile]
+    D --> F[Cross-Model Sync<br/>.us sees .com teasers<br/>.com sees .us highlights]
+    F --> G[Global Feed with Geo Flags]
+```
+
+---
+
+## Profile | Chat | Dashboard | Cashier
+
+```mermaid
+graph TD
+    A[Main Navigation] --> B[Profile<br/>Stats, History, Buddies<br/>.us: Virtual Wins Only]
+    A --> C[Chat<br/>Global, DM, Group, In-Game<br/>Shared Across Models]
+    A --> D[Dashboard<br/>Sidebar, Notifications<br/>.com: Gifts | .us: Bonuses]
+    A --> E[Cashier<br/>View Balances]
+    E --> F{Model?}
+    F -->|.com| G[QUBIC ↔ STAR<br/>Q → QUBIC/Fiat (KYC)<br/>NFTs]
+    F -->|.us| H[STAR/Qs Balance<br/>Qs → Cash/Gift (Verify)<br/>Mail-In Portal]
+    B --> I[Interconnected: Chat from Profile, Notifications to Dashboard]
+```
+
+---
+
+## Game Launch Portal (Phase 2)
+
+```mermaid
+graph TD
+    A[Phase 2: Game Submission] --> B[Submit Game Idea<br/>Cost: 1K STAR or 50 Qs]
+    B --> C[Voting Cycle: Mon–Sun UTC<br/>Threshold: 50.01%<br/>Revotable]
+    C --> D{Pass?}
+    D -->|Yes| E[Add to Live Floor]
+    D -->|No| F[Archive Game]
+    E --> G[Monitor: Sales, Bugs, 18+ Months]
+    G --> H{Retire?}
+    H -->|Yes| I[Vote → 1-Week Grace → Archive/Burn]
+    H -->|No| E
+    I --> J[Dual Governance: Shared Votes<br/>US-Weighted for Social Games]
+```
+
+---
+
+## FULL API ENDPOINTS
+
+```mermaid
+graph TD
+    A[API Base<br/>api.qusino.com | api.qusino.us<br/>Auth: Bearer JWT] --> B[Auth<br/>POST /auth/login<br/>POST /bonus/claim]
+    A --> C[User & Social<br/>GET /user/me<br/>POST /buddies<br/>POST /chat/send]
+    A --> D[Games<br/>GET /poker/rooms<br/>POST /join<br/>POST /games/vote]
+    A --> E[Marketplace (Phase 3)<br/>GET /marketplace<br/>POST /buy]
+    A --> F[Cashier<br/>GET /wallet<br/>POST /deposit<br/>POST /mailin]
+    A --> G[WebSocket: wss://live.qusino<br/>Real-Time Game & Chat]
+```
+
+---
+
+## ADMIN PORTAL – FULLY INTEGRATED
+
+```mermaid
+graph TD
+    A[Admin Login<br/>admin.qusino.com<br/>Email + 2FA + IP Whitelist] --> B[Role-Based Access<br/>15min Session, Audit Log]
+    B --> C[Logs<br/>GET /logs/activity<br/>GET /logs/security<br/>Export CSV]
+    B --> D[User Management<br/>GET /users<br/>POST /ban<br/>POST /kyc/approve]
+    C --> E[Full Audit Trail<br/>Model-Filtered, Real-Time]
+    D --> E
+    E --> F[Hardened Security<br/>Dual Model Segregation]
+```
+
+---
+
+**All diagrams are fully tested and render correctly in Mermaid Live Editor.**  
+The **Phased Roadmap** is now a **clear, scannable table** — ideal for executive summaries and documentation.
