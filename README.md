@@ -434,7 +434,7 @@ graph TD
 graph TD
     A[Main Navigation] --> B[Profile<br/>Stats, History, Buddies<br/>.us: Virtual Wins Only]
     A --> C[Chat<br/>Global, DM, Group, In-Game<br/>Shared Across Models]
-    A --> D[Dashboard<br/>Sidebar, Notifications<br/>.com: Gifts | .us: Bonuses]
+    A --> D[Dashboard<br/>Sidebar, Notifications<br/>.com: Gifts - .us: Bonuses]
     A --> E[Cashier<br/>View Balances]
     E --> F{Model?}
     F -->|.com| G[QUBIC ↔ STAR<br/>Q → QUBIC/Fiat (KYC)<br/>NFTs]
