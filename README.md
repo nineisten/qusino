@@ -437,8 +437,8 @@ graph TD
     A --> D[Dashboard<br/>Sidebar, Notifications<br/>.com: Gifts - .us: Bonuses]
     A --> E[Cashier<br/>View Balances]
     E --> F{Model?}
-    F -->|.com| G[QUBIC ↔ STAR<br/>Q → QUBIC/Fiat (KYC)<br/>NFTs]
-    F -->|.us| H[STAR/Qs Balance<br/>Qs → Cash/Gift (Verify)<br/>Mail-In Portal]
+    F -->|.com| G[QUBIC ↔ STAR<br/>Q → QUBIC/Fiat - KYC<br/>NFTs]
+    F -->|.us| H[STAR/Qs Balance<br/>Qs → Cash/Gift - Verify<br/>Mail-In Portal]
     B --> I[Interconnected: Chat from Profile, Notifications to Dashboard]
 ```
 
