@@ -151,3 +151,13 @@ footer a {
     color:#fff;
 }
 
+.container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    min-height: 100dvh;
+    color:#FEF8E8;
+    text-transform: lowercase;
+    flex-direction: column;
+}
