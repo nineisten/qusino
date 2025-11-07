@@ -35,7 +35,7 @@ Phase 2 (Q1 2026) drops the **first fully on-chain game submission portal** ever
 5. Crush votes after 18 months → NFT burn → permanent supply deflation
 
 **Devs, artists, degens – start shipping.**  
-Full API spec, WebSocket events, smart-contract hooks, and admin impersonation tools will be available sooon.
+Full API spec, WebSocket events, smart-contract hooks, and admin impersonation tools will be available 
 
 ### Revenue Flywheel – 100% Transparent & On-Chain
 ```mermaid
@@ -43,7 +43,7 @@ pie title Every Rake & Fee → Players & Creators
     "Treasury (ops)" : 25
     "Community Contribution Fund (CCF)" : 15
     "Liquidity Pool" : 25
-    "Smart contract holders" : 35
+    "QST Stakers & Game Creators" : 35
 ```
 
 ### Tech That Ships Fast
@@ -59,9 +59,7 @@ pie title Every Rake & Fee → Players & Creators
 - **Q3 2026** – Marketplace live, mobile apps, first 10 community games
 
 ### Devs: This is Your Casino
-- Fork → build → submit → **earn royalties forever**  
-- Open an issue with tag `game-submission` → instant 50 **QSC** testnet airdrop  
-- Smart-contract templates in C++ WASM already in `/contracts`
+build → submit → vote → play → **earn royalties forever**  
 
 ### Players
 Join the waitlist at https://qusino.com → lock in your **500K STAR + 50 QSC** on launch day.
