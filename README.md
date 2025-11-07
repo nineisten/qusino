@@ -1,6 +1,8 @@
 # Qusino – The First Player-Owned, On-Chain Casino on QUBIC  
 **GitHub: https://github.com/nineisten/qusino** | Dual-Model v1.4 (QST/QSC) – LIVE DEV BUILD
 
+**DISCLAIMER** The data seen below is subject to change at any time. 
+
 ### One Platform. Two Legal Models. Zero Gatekeepers.
 
 **Qusino.com** → Global Real-Money Casino (Isle of Man OGRA license Q4 2025)  
