@@ -43,7 +43,7 @@ pie title Every Rake & Fee → Players & Creators
     "Treasury (ops)" : 25
     "Community Contribution Fund (CCF)" : 15
     "Liquidity Pool" : 25
-    "QST Stakers & Game Creators" : 35
+    "Smart contract holders" : 35
 ```
 
 ### Tech That Ships Fast
