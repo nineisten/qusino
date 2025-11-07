@@ -4,7 +4,15 @@
 ### One Platform. Two Legal Models. Zero Gatekeepers.
 
 **Qusino.com** → Global Real-Money Casino (Isle of Man OGRA license Q4 2025)  
+- can deposit and withdraw without legal hangups
+- transacts with QST
+
 **Qusino.us** → US Sweepstakes Casino (48 states legal – no purchase necessary)
+- Can buy star coins only.
+- recieve the purchase value in QSC as a bonus to your STAR purchase ( 777 STAR : 1 QSC )
+- QSC to QST can only be redeemed in dApp. Never on exchanges.
+- STAR coins coins are for Voting, staking, and Free game play. Otherwise non-redeemable. 
+- Staking star Earns you QSC. 
 
 Smart IP geo-routing. Same buddies, chat, wall, and profile across both worlds.
 
