@@ -35,7 +35,7 @@ Phase 2 (Q1 2026) drops the **first fully on-chain game submission portal** ever
 5. Crush votes after 18 months → NFT burn → permanent supply deflation
 
 **Devs, artists, degens – start shipping.**  
-Full API spec, WebSocket events, smart-contract hooks, and admin impersonation tools are **100% open** in this repo right now.
+Full API spec, WebSocket events, smart-contract hooks, and admin impersonation tools will be available sooon.
 
 ### Revenue Flywheel – 100% Transparent & On-Chain
 ```mermaid
