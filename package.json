@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "play vote build own win",
   "main": "server.js",
-  "type":"module",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon api/src/server.js"
+    "start": "nodemon api/src/server.js"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,8 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12"
   }
 }
