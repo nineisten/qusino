@@ -19,11 +19,11 @@ Smart IP geo-routing. Same buddies, chat, wall, and profile across both worlds.
 | Model | Play Chip | Prize Token | Supply | Peg |
 |-------|-----------|-------------|--------|-----|
 | Global | STAR (1 STAR = 1,000 QUBIC) | **QST** – QUSINO STANDARD TOKEN | 1.8 B total | **1 QST = 1 QSC** (perfect cross-model parity) |
-| US     | STAR (fun) | **QSC** – Qusino Sweepstakes Coin | Virtual | 100 QSC → cash/gift card (ID + free mail-in) |
+| US     | STAR (fun) | **QSC** – Qusino Sweepstakes Coin | Virtual | 100 QSC → QST → QUBIC |
 
-**Day-one bonuses are still absurd:**  
-- .com → 1,000 STAR + 100 **QST**  
-- .us → **500K STAR + 50 QSC** (half a million free chips)
+**Day-one bonuses:**  
+- .com → Match up to 1000 **QST** + 1000 star bonus
+- .us → **1000STAR + 50 QSC** 
 
 ### Game Launch Portal – You Build It, You Own It Forever
 Phase 2 (Q1 2026) drops the **first fully on-chain game submission portal** ever:
