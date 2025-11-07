@@ -12,7 +12,7 @@ Smart IP geo-routing. Same buddies, chat, wall, and profile across both worlds.
 - Texas Hold’em + Pot Limit Omaha (2–9 players)  
 - 15–30s clock, rebuy, sit-out, auto-deal  
 - In-game chat with emoji, @mentions, dealer notes, auto-mod  
-- Provably fair via on-chain `RANDOM.get()`  
+- Provably fair metrics.  
 - Live support ticket → screenshot → agent in <60s
 
 ### Token Standard v1.4 – QST & QSC are now 1:1
