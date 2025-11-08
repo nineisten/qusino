@@ -22,7 +22,6 @@
 #### Bonus Structure
 - `.com`: Match up to **1,000 QST + 1,000 STAR**
 - `.us`: **1,000 STAR + 50 QSC**
-- Purchase ratio: **777 STAR : 1 QSC** (bonus)
 
 > **STAR staking earns QSC** (US model incentivized play)
 
