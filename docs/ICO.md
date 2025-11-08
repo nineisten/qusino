@@ -1,77 +1,58 @@
-
-# QST ICO Tokenomics – Final v6 (Whitelist Only)
-
-**Qusino Standard Token**  
-**Fair Launch • Deep Liquidity • Whitelist Priority**
+**QUBIC ICO Portal – Summary**  
+`Version 6.1 | Final`
 
 ---
 
-## Tokenomics Overview
+### **Project Summary**
 
-| Item | Value |
-|------|-------|
-| **Total Supply** | `1,800,000,000 QST` |
-| **Fixed Peg** | `1 QST = 777 QUBIC` |
-| **ICO Sale** | `900M QST (50%) @ 777 QUBIC` |
-| **Liquidity Pool Stake** | `900M QST (50%) locked 5 years` |
-| **Raise Target** | `~699.3B QUBIC` |
+The **QUBIC ICO Portal (QIP)** is a **fully automated, trustless smart contract** that enables **any project** to launch an ICO on QUBIC with **zero voting, zero consensus, and zero delays**.
 
 ---
 
-## Proceeds Allocation (699.3B QUBIC)
-
-| Bucket | % | QUBIC | Purpose |
-|--------|----|--------|--------|
-| **Treasury** | 20% | `139.9B` | Ops, audits, legal, partnerships |
-| **Liquidity (add-on)** | 40% | `279.7B` | → **1.35T QUBIC TVL** |
-| **Dev Team** | 20% | `139.9B` | **24-month linear vest** |
-| **CCF (Donation)** | 15% | `104.9B` | **Unrestricted community gift** |
-| **Marketing & Growth** | 5% | `35.0B` | CEX listings, ads, influencers |
-
-> **Day-1 LP**: `900M QST (locked) + 279.7B QUBIC = ~1.35 TRILLION QUBIC TVL`  
-> **5-year time-lock**
+### **Core Function**
+- **Anyone** can launch a token by calling the contract with:  
+  - Token name, symbol, supply, logo (IPFS CID)  
+  - **Minimum 10M QUBIC**  
+- **Instant execution** — no approval, no gatekeepers  
 
 ---
 
-## 3-Phase Launch
+### **Revenue Share (Automated Disbursement)**
 
-| Phase | Tokens | Duration | Eligibility |
-|-------|--------|----------|-------------|
-| **Phase 1: Early Believers** | `300M QST` | **7 days** | **FCFS** |
-| **Phase 2: Community Round** | `400M QST` | **10 days** | **Whitelist Only** (criteria TBD) |
-| **Phase 3: Public Sale** | `200M QST` | **Until sold** | **Open to all** |
+| Recipient | Share | Notes |
+|---------|-------|-------|
+| **CCF Treasury** | **95%** | Immutable address — funds sent immediately |
+| **Smart Contract Holders** | **5%** | Pro-rata distribution to all holders of the **SC ownership token** |
 
-> **Price**: `777 QUBIC per QST` (all phases)  
-> **Unsold tokens roll forward**
-
----
-
-## CCF – Community Contribution Fund (Pure Donation)
-
-- **15% of raise** → `~104.9B QUBIC`
-- **DONATED at TGE** to community-controlled wallet
-- **100% unrestricted**
-- **No allocations, no rules, no reporting**
-- Community does **whatever they want**
+> **No voting. No governance. No control.**  
+> **Disbursement is 100% on-chain and automatic.**
 
 ---
 
-## Security & Trust
-
-| Item | Detail |
-|------|--------|
-| **LP Lock** | 5 years (on-chain) |
-| **Dev Vest** | 24-month linear (~5.83B/month) |
-| **Treasury** | 3-of-5 multisig |
-
----
-
-## Links
-
-- **Website**: [qusino.com](https://qusino.com)
-- **X**: [@_qusino_](https://x.com/_qusino_)
+### **Key Features**
+- **No staking**  
+- **No governance token**  
+- **No pause or admin override**  
+- **CCF address is hardcoded and final**  
+- **5% share is distributed to SC token holders via on-chain logic**  
 
 ---
 
-> **Play. Vote. Build. Own. Win.**  
-> **$QST – From Games to Governance**
+### **Smart Contract Holders**
+- Hold the **QIP SC Token** (ownership token)  
+- **Automatically receive 5% of every ICO raise**  
+- **Pro-rata based on holdings**  
+- **No voting rights** — only revenue share  
+
+---
+
+### **Deployment**
+1. Deploy with:  
+   - `CCF_TREASURY = [immutable]`  
+   - `SC_TOKEN_ADDRESS = [ownership token]`  
+2. Projects call `launch()`  
+3. Funds split **95% → CCF**, **5% → SC holders** — instantly  
+
+---
+
+**Automation only. Revenue only. Done.**
