@@ -1,5 +1,5 @@
 **QUBIC ICO Portal – Summary**  
-`Version 6.1 | Final`
+`Version 1.1`
 
 ---
 
