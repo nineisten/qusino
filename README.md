@@ -4,7 +4,7 @@
 > **"The first player-owned, on-chain casino on QUBIC"**
 
 - **Dual-domain legal strategy**:
-  - `qusino.com` → **Global real-money casino** (Isle of Man OGRA license, Q4 2025)
+  - `qusino.com` → **Global real-money casino**
   - `qusino.us` → **US sweepstakes casino** (48-state compliant, no purchase necessary)
 
 - **Same UX, shared social layer** (buddies, chat, profile, wall) via **smart IP geo-routing** (Cloudflare Workers).
@@ -16,13 +16,12 @@
 | Token | Role | Supply | Peg / Redemption |
 |-------|------|--------|------------------|
 | **QST** | Prize token (global) | 1.8B total | 1 QST = 1 QSC |
-| **QSC** | Sweepstakes coin (US-only) | Virtual | 100 QSC → QST → QUBIC |
-| **STAR** | Utility / play chip | ∞ (1 STAR = 1,000 QUBIC) | Voting, staking, free play |
+| **QSC** | Sweepstakes coin (US-only) | Virtual | QSC → QST → QUBIC |
+| **STAR** | Utility / play chip | ∞ | Voting, staking, free play |
 
 #### Bonus Structure
-- `.com`: Match up to **1,000 QST + 1,000 STAR**
-- `.us`: **1,000 STAR + 50 QSC**
-
+- `.com`: Match up to **1,000 QST + STAR**
+- `.us`: **1000 STAR + 50 QSC**
 > **STAR staking earns QSC** (US model incentivized play)
 
 ---
@@ -39,7 +38,7 @@
 5. **50.01% approval** → auto-deploy to casino floor
 
 #### Developer Royalties
-- Set **1%–5%** perpetual royalty
+- perpetual royalty
 - Paid in **QST daily**
 - **No expiration** — true ownership
 
@@ -73,10 +72,10 @@ We are actively developing a provably fair RNG system leveraging QUBIC computors
 
 All rake and fees from every game are automatically re-distributed via the **Game Contract**:
 
-- **Treasury (ops)**: 25%  
-- **Community Contribution Fund (CCF)**: 15%  
-- **Liquidity Pool**: 25%  
-- **QST Stakers & Game Creators**: 35%
+- **Treasury (ops)**: 30%  
+- **Liquidity Pool**: 30%  
+- **Game owner**: 30%
+- **Game Developer**:10%
 
 > **Every rake & fee → transparent, on-chain, player-aligned**
 
@@ -86,12 +85,12 @@ All rake and fees from every game are automatically re-distributed via the **Gam
 
 In addition to game-level rake, **all platform fees** (e.g. deposits, withdrawals, STAR purchases, bonus claims) are routed through the **Qusino SC** and re-distributed as follows:
 
-- **QST Buyback & Burn**: 40%  
-- **STAR Staker Rewards (QSC emissions)**: 30%  
-- **Game Launch Portal Fund**: 20%  
-- **Security & Audit Reserve**: 10%
+- **Qusino LP**: 20%
+- **CCF**: 15%
+- **Qusino Treasury**: 25% 
+- **Smart Contract Holders**: 40%
 
-> **100% of platform revenue fuels deflation, staking, and ecosystem growth**
+> **100% of platform revenue fuels ecosystem growth for both Qusino and the Qubic Tick-Chain**
 
 ---
 
@@ -99,12 +98,13 @@ In addition to game-level rake, **all platform fees** (e.g. deposits, withdrawal
 
 - **Universal Voting Token**: **STAR**  
   - **All users** (both .com and .us) **burn 1,000 STAR** to submit a vote on game proposals  
-  - **1 STAR = 1 vote** (weighted by stake duration in future upgrades)
+  - **Wallets must hold 1000 star to vote.**
+  - **Star volume does not increase voting power**: 1 wallet + 1k STAR = 1 vote. this is done to keep Voting fair.
 
 ---
 
 ## 9. Launch Games
-- **Texas Hold’em & Pot Limit Omaha**
+- **Texas Hold’em**
   - 2–9 players
   - 15–30s clock
   - Rebuy, sit-out, auto-deal
@@ -116,9 +116,9 @@ In addition to game-level rake, **all platform fees** (e.g. deposits, withdrawal
 
 | Timeline | Milestone |
 |--------|---------|
-| **Q4 2025** | `qusino.com` poker launch (real stakes) |
-| **Q1 2026** | `qusino.us` + Game Portal live |
-| **Q3 2026** | Mobile apps, marketplace, 10+ community games |
+| **Q1 2025** | `qusino.com` SC inclusion & MVP Launch (real stakes) |
+| **Q2 2026** | `qusino.us` + Game Portal live |
+| **Q4 2026** | Mobile apps, marketplace, 10+ community games |
 
 ---
 
