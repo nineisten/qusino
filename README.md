@@ -19,7 +19,7 @@ flowchart TD
     G --> L[5% CCF]
 
     M[Developers] --> F
-    N[QubicBay NFT Deployment] --> O[Marketplace - Game Rights Trading & Auctions]
+    N[Game Capsule Deployment] --> O[Added to game list]-->P[Marketplace - Game Rights Trading & Auctions]
 ```
 
 ## 2. Game Launch Portal (GLP)
@@ -31,7 +31,7 @@ flowchart TD
   1. Build game
   2. Submit proposal (repo + playable demo)
   3. Community vote
-  4. Deployed as NFT on QubicBay
+  4. Deployed as NFT styled Capsule.
 - **Automatic Revenue Split**: Up to **33.3%** to developer
 - **Marketplace Features**:
   - Game rights trading
