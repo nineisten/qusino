@@ -22,7 +22,9 @@ flowchart TD
     A --> C[QSC Tokens - Sweepstakes Only]
     A --> D[Qubic - Real Money Games]
     A --> E[QST Tokens - Membership + Revenue Share]
-
+```
+```mermaid
+flowchart TD
     F[Game Launch Portal GLP] --> G[QSC/QUBIC swap] --> H[Game Capsule Distribution]
     H--> HH[Up to 33.3% to Developer Wallet]
     H-->I[Smart Contract Redistributions]
