@@ -1,16 +1,15 @@
 # Qusino Architecture  
 **Q2 2026 Update**
 
----
 
 ## 1. High-Level Ecosystem Overview
 
 ```mermaid
 flowchart TD
-    A[Users / Players] --> B[STAR Tokens\n(Free Play + Voting)]
-    A --> C[QSC Tokens\n(Sweepstakes Only)]
-    A --> D[Qubic\n(Real Money Games)]
-    A --> E[QST Tokens\n(Membership + Revenue Share)]
+    A[Users / Players] --> B[STAR Tokens - Free Play + Voting]
+    A --> C[QSC Tokens - Sweepstakes Only]
+    A --> D[Qubic - Real Money Games]
+    A --> E[QST Tokens - Membership + Revenue Share]
 
     F[Game Launch Portal GLP] --> G[Smart Contract Redistributions]
     G --> H[20% SC Holders]
@@ -20,35 +19,8 @@ flowchart TD
     G --> L[5% CCF]
 
     M[Developers] --> F
-    N[QubicBay NFT Deployment] --> O[Marketplace\n(Game Rights Trading & Auctions)]
+    N[QubicBay NFT Deployment] --> O[Marketplace - Game Rights Trading & Auctions]
 ```
-```markdown
-# Qusino Architecture  
-**Q2 2026 Update**
-
----
-
-## 1. High-Level Ecosystem Overview
-
-```mermaid
-flowchart TD
-    A[Users / Players] --> B[STAR Tokens\n(Free Play + Voting)]
-    A --> C[QSC Tokens\n(Sweepstakes Only)]
-    A --> D[Qubic\n(Real Money Games)]
-    A --> E[QST Tokens\n(Membership + Revenue Share)]
-
-    F[Game Launch Portal GLP] --> G[Smart Contract Redistributions]
-    G --> H[20% SC Holders]
-    G --> I[30% QST Holders]
-    G --> J[25% Treasury]
-    G --> K[20% Liquidity Providers]
-    G --> L[5% CCF]
-
-    M[Developers] --> F
-    N[QubicBay NFT Deployment] --> O[Marketplace\n(Game Rights Trading & Auctions)]
-```
-
----
 
 ## 2. Game Launch Portal (GLP)
 
