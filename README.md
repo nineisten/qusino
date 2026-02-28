@@ -22,6 +22,9 @@ flowchart TD
     A --> C[QSC Tokens - Sweepstakes Only]
     A --> D[Qubic - Real Money Games]
     A --> E[QST Tokens - Membership + Revenue Share]
+
+
+    
 ```
 ```mermaid
 flowchart TD
@@ -38,6 +41,7 @@ flowchart TD
     P[Game Capsule Deployment] --> Q[Added to game list]-->R[Marketplace - Game Rights Trading & Auctions]
 
     
+
 
 ```
 
@@ -64,6 +68,9 @@ flowchart LR
     B -->|No| D[Continue]
     C --> E[Too Many Negative Reviews]
     C --> F[Too Many Bug Reports]
+
+
+
 ```
 
 ### GLP Guidelines (Mandatory)
@@ -88,6 +95,9 @@ flowchart TD
     C --> D[One Vote per Proposal\nper Epoch per Wallet]
     D --> E[Vote: Add / Remove / Keep]
     E --> F[Result Enforced by SC]
+
+
+
 ```
 
 - **Vote Cost**: 1000 STAR tokens (locked during epoch)
