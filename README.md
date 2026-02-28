@@ -1,5 +1,5 @@
 # Qusino Architecture  
-**Q2 2026 Update**
+**Q1/Q2 2026 Update**
 
 ## Executive Summary
 
@@ -24,7 +24,7 @@ flowchart TD
     A --> E[QST Tokens - Membership + Revenue Share]
 
 
-    
+
 ```
 ```mermaid
 flowchart TD
@@ -34,7 +34,7 @@ flowchart TD
     I --> J[20% SC Holders]
     I --> K[30% QST Holders]
     I --> L[25% Treasury]
-    I --> M[20% Liquidity Providers]
+    I --> M[20% Liquidity Pool]
     I --> N[5% CCF]
 
     O[Developers] --> F
