@@ -33,7 +33,7 @@ flowchart TD
     I --> N[5% CCF]
 
     O[Developers] --> F
-    P[Game Capsule Deployment] --> Q[Added to game list]-->P[Marketplace - Game Rights Trading & Auctions]
+    P[Game Capsule Deployment] --> Q[Added to game list]-->R[Marketplace - Game Rights Trading & Auctions]
 
     
 
