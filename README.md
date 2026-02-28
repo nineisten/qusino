@@ -23,15 +23,21 @@ flowchart TD
     A --> D[Qubic - Real Money Games]
     A --> E[QST Tokens - Membership + Revenue Share]
 
-    F[Game Launch Portal GLP] --> G[Smart Contract Redistributions]
-    G --> H[20% SC Holders]
-    G --> I[30% QST Holders]
-    G --> J[25% Treasury]
-    G --> K[20% Liquidity Providers]
-    G --> L[5% CCF]
+    F[Game Launch Portal GLP] --> G[QSC/QUBIC swap] --> H[Game Capsule Distribution]
+    H--> HH[Up to 33.3% to Developer Wallet]
+    H--> HI[QUSINO Smart Contract]
+    -->I[Smart Contract Redistributions]
+    I --> J[20% SC Holders]
+    I --> K[30% QST Holders]
+    I --> L[25% Treasury]
+    I --> M[20% Liquidity Providers]
+    I --> N[5% CCF]
 
-    M[Developers] --> F
-    N[Game Capsule Deployment] --> O[Added to game list]-->P[Marketplace - Game Rights Trading & Auctions]
+    O[Developers] --> F
+    P[Game Capsule Deployment] --> Q[Added to game list]-->P[Marketplace - Game Rights Trading & Auctions]
+
+    
+
 ```
 
 ## 2. Game Launch Portal (GLP)
