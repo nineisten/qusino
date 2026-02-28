@@ -25,8 +25,7 @@ flowchart TD
 
     F[Game Launch Portal GLP] --> G[QSC/QUBIC swap] --> H[Game Capsule Distribution]
     H--> HH[Up to 33.3% to Developer Wallet]
-    H--> HI[QUSINO Smart Contract]
-    -->I[Smart Contract Redistributions]
+    H-->I[Smart Contract Redistributions]
     I --> J[20% SC Holders]
     I --> K[30% QST Holders]
     I --> L[25% Treasury]
