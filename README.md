@@ -1,6 +1,18 @@
 # Qusino Architecture  
 **Q2 2026 Update**
 
+## Executive Summary
+
+Qusino is a decentralized gaming ecosystem built on the Qubic network that combines **free-to-play**, **sweepstakes**, and **real-money gaming** models under a single Game Launch Portal (GLP).  
+
+The architecture emphasizes:
+- Community governance via STAR token voting
+- Provably fair gameplay (RANDOM RNG)
+- Multiple revenue-sharing layers (developers, QST holders, liquidity providers, treasury, etc.)
+- Tiered membership perks through holding QST
+-  parallel in-game currencies with distinct utilities:
+  - **STAR** → free play + voting power
+  - **QSC** → sweepstakes entry/redemption
 
 ## 1. High-Level Ecosystem Overview
 
