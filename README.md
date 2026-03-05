@@ -127,7 +127,6 @@ pie title Revenue Redistribution
   - 30% of platform revenue
   - QUSINO Membership (Tier 1 / Tier 2 / Tier 3 perks)
   - Casino-style Player’s Card (more held = better perks)
-  - Staking rewards paid in Qubic (1 QST : Dividends × interest)
 
 #### QST Distribution Table
 | Allocation          | %     | Amount    |
@@ -143,7 +142,7 @@ pie title Revenue Redistribution
 ### QSC – Qusino Sweepstakes Coin
 - **Price**: 120 Qubic each
 - **Issuance**: 1 QSC issued daily (per eligible wallet)
-- **Earning**: Bonuses from STAR purchases & staking
+- **Earning**: Bonuses from STAR purchases
 - **Redemption Rules**:
   - Must risk **20%** of QSC balance before eligible for redemption
 - **Exclusive Use**: Sweepstakes games only
