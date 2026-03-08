@@ -149,6 +149,7 @@ Utility: Tiered membership (Player’s Card perks), 30% platform revenue share
 
 ## Implementation
 ```
+cpp
 using namespace QPI;
 
 constexpr uint64 QUSINO_MAX_USERS = 131072;
