@@ -148,8 +148,7 @@ Utility: Tiered membership (Player’s Card perks), 30% platform revenue share
 - Positions Qubic as a leader in decentralized gaming/sweepstakes  
 
 ## Implementation
-```
-cpp
+```cpp
 using namespace QPI;
 
 constexpr uint64 QUSINO_MAX_USERS = 131072;
