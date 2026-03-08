@@ -52,7 +52,7 @@ flowchart TD
 ```
 
 ```mermaid
-pie title Platform Revenue Redistribution per Game/Platform Earnings
+pie title Smart Contract Distributions
     "20% SC Holders" : 20
     "30% QST Holders" : 30
     "25% Treasury" : 25
