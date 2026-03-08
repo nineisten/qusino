@@ -1,170 +1,151 @@
-# Qusino Architecture  
-**Q1/Q2 2026 Update**
+# Proposal to Approve Qusino as a Game Launch Portal (GLP) Capsule on the Qubic Network
+
+**Proposal**  
+Approve the deployment and integration of the Qusino ecosystem (Game Launch Portal, provably fair gaming capsules, multi-token model with STAR/QSC/QST) on the Qubic blockchain, including automatic revenue redistributions via smart contract.
+
+**Available Options**  
+- **Option 1:** Yes — Approve Qusino GLP deployment and ecosystem rules.  
+- **Option 0:** No — Do not approve at this time.
+
+---
 
 ## Executive Summary
 
-Qusino is a decentralized gaming ecosystem built on the Qubic network that combines **free-to-play** & **sweepstakes** models under a single Game Launch Portal (GLP).  
+Qusino is a decentralized gaming ecosystem built natively on Qubic, combining **free-to-play** (STAR tokens) and **sweepstakes-style** (QSC tokens) models through a community-governed **Game Launch Portal (GLP)**. It enables developers to deploy provably fair games as NFT-styled Capsules, with automatic revenue sharing (up to 33.3% to devs, plus splits to QST holders, treasury, liquidity providers, SC shareholders, and CCF). Governance occurs via STAR voting, membership perks scale with QST holdings, and all randomness uses the native RANDOM oracle for transparency.
 
-The architecture emphasizes:
-- Community governance via STAR token voting
-- Provably fair gameplay (RANDOM RNG)
-- Multiple revenue-sharing layers (developers, QST holders, liquidity providers, treasury, etc.)
-- Tiered membership perks through holding QST
--  parallel in-game currencies with distinct utilities:
-  - **STAR** → free play + voting power
-  - **QSC** → sweepstakes entry/redemption
+Approval enables real on-chain gaming activity, increases Qubic compute/asset usage, and bootstraps a revenue-generating vertical (gaming/gambling) with fair, transparent tokenomics.
 
-## 1. High-Level Ecosystem Overview
+---
+
+## What problem does Qusino solve?
+
+Qubic currently lacks native, standardized infrastructure for decentralized gaming platforms with:
+
+- Provably fair RNG tied to network oracles
+- Multi-currency models (free vs. redeemable sweepstakes)
+- Community-voted game inclusion/exclusion
+- Multi-layer revenue sharing without centralized custodians
+- Tiered perks and governance aligned with holding/staking
+
+Qusino solves this by providing:
+
+- A reusable **GLP smart contract framework** for capsule deployment
+- **Mandatory provable fairness** via RANDOM
+- **Transparent redistribution** (20% SC holders, 30% QST, 25% treasury, 20% LP, 5% CCF)
+- **Voting revocation** for underperforming games (after 18 months or via negative reviews/bugs)
+- **Native Qubic integration** for fees, swaps, and gameplay
+
+---
+
+## High-Level Ecosystem Overview
 
 ```mermaid
 flowchart TD
-    A[Users / Players] --> B[STAR Tokens - Free Play + Voting]
-    A --> C[QSC Tokens - Sweepstakes Only]
-    A --> D[QST Tokens - Membership + Revenue Share]
-
-
-
+    A[Players] -->|Free Play + Vote| B[STAR Tokens]
+    A -->|Sweepstakes / Redemption| C[QSC Tokens]
+    A -->|Membership + Revenue Share| D[QST Tokens]
+    E[Game Launch Portal GLP] --> F[Game Capsule NFT Deployment]
+    F --> G[Revenue from QSC/Qubic Gameplay]
+    G --> H[Smart Contract Splits]
+    H --> I[33.3% Developer]
+    H --> J[Platform Redistributions]
 ```
+
 ```mermaid
-flowchart TD
-    F[Game Launch Portal GLP] --> G[QSC/QUBIC swap] --> H[Game Capsule Distribution]
-    H--> HH[Up to 33.3% to Developer Wallet]
-    H-->I[Smart Contract Redistributions]
-    I --> J[20% SC Holders]
-    I --> K[30% QST Holders]
-    I --> L[25% Treasury]
-    I --> M[20% Liquidity Pool]
-    I --> N[5% CCF]
-
-    O[Developers] --> F
-    P[Game Capsule Deployment] --> Q[Added to game list]-->R[Marketplace - Game Rights Trading & Auctions]
-
-    
-
-
+pie title Platform Revenue Redistribution per Game/Platform Earnings
+    "Developer" : 33.3
+    "QST Holders" : 30
+    "Treasury" : 25
+    "Liquidity Providers" : 20
+    "SC Shareholders" : 20
+    "CCF" : 5
 ```
 
-## 2. Game Launch Portal (GLP)
-
-### Key Rules
-- **Launch Fee**: 100 million Qubic  
-  → 10% automatically sent to Smart Contract (SC) reserve
-- **Developer Workflow**:
-  1. Build game
-  2. Submit proposal (repo + playable demo)
-  3. Community vote
-  4. Deployed as NFT styled Capsule.
-- **Automatic Revenue Split**: Up to **33.3%** to developer
-- **Marketplace Features**:
-  - Game rights trading
-  - Game rights auctions
-
-### Revote Triggers
-```mermaid
-flowchart LR
-    A[Game Live 18 Months] --> B{Revote Required?}
-    B -->|Yes| C[SC Command Trigger]
-    B -->|No| D[Continue]
-    C --> E[Too Many Negative Reviews]
-    C --> F[Too Many Bug Reports]
-
-
-
-```
-
-### GLP Guidelines (Mandatory)
-| Requirement                      | Details |
-|----------------------------------|-------|
-| Repository                       | Must be public & linked |
-| Playable Demo                    | Included in proposal |
-| RNG                              | Must use **RANDOM** for provably fair |
-| Game Mode Selector               | Toggle between STAR (Free) / QSC or Qubic |
-| Free Mode                        | Must include STAR play |
-| Sweepstakes Model                | Use **QSC** via Qusino Command |
-| Real Money Model                 | Use **Qubic** |
+*Note: Developer cap at ~33.3%; remaining split among others as shown.*
 
 ---
 
-## 3. Voting System
+## Game Launch Portal (GLP) Rules & Workflow
+
+### Mandatory Guidelines
+
+| Requirement              | Details                                                                 |
+|--------------------------|-------------------------------------------------------------------------|
+| Launch Fee               | 100 million Qubic (10% auto to SC reserve)                              |
+| Repository               | Must be public GitHub repo                                              |
+| Demo                     | Playable demo required in proposal                                      |
+| RNG                      | MUST use RANDOM for provably fair outcomes                              |
+| Mode Selector            | Toggle: STAR (free), QSC (sweepstakes), or direct Qubic                 |
+| Free Mode                | Must support STAR play                                                  |
+| Sweepstakes              | QSC via Qusino commands; risk 20% before redemption eligible           |
+| Developer Revenue        | Up to 33.3% automatic                                                   |
+| Marketplace              | Game rights tradable/auctionable post-launch                            |
+
+### Developer / Capsule Deployment Flow
+
+1. Build game with RANDOM integration
+2. Submit proposal (repo + demo) to community vote (STAR holders)
+3. If approved → pay 100M Qubic fee
+4. Deploy as Capsule NFT
+5. Live gameplay → revenue auto-split
+6. After 18 months: optional revote (triggered by bugs/negative reviews)
+
+---
+
+## Voting System (for Game Inclusion/Removal)
 
 ```mermaid
 flowchart TD
-    A[Proposal Submitted] --> B[Epoch Starts]
-    B --> C[Users Stake 1000 STAR]
-    C --> D[One Vote per Proposal\nper Epoch per Wallet]
-    D --> E[Vote: Add / Remove / Keep]
-    E --> F[Result Enforced by SC]
-
-
-
+    P[Proposal Submitted] --> E[Epoch Opens]
+    E --> V[Stake min 1000 STAR to vote]
+    V --> Vote[Add / Remove / Keep]
+    Vote --> Result[SC enforces result]
 ```
 
-- **Vote Cost**: 1000 STAR tokens (locked during epoch)
-- **Revotes**: Can be forced by Smart Contract (negative reviews / bugs)
+- Cost: 1000 STAR locked per epoch per proposal
+- One vote per wallet per proposal per epoch
+- Revote trigger: SC command after sustained negative feedback
 
 ---
 
-## 4. Smart Contract Redistributions
+## Tokens & Utilities
 
-**Revenue Split (per game / platform earnings)**
+### QST – Membership & Revenue Token
 
-```mermaid
-pie title Revenue Redistribution
-"20% SC Holders" : 20
-"30% QST Holders" : 30
-"25% Treasury" : 25
-"20% Liquidity Providers (LP)" : 20
-"5% CCF" : 5
-```
+Total supply: 1.8 billion (600M burned = 33.3%)  
+Utility: Tiered membership (Player’s Card perks), 30% platform revenue share
 
----
+| Allocation       | %     | Amount     |
+|------------------|-------|------------|
+| QX Exchange      | 22%   | 396M       |
+| Reserve          | 17%   | 306M       |
+| Liquidity Pool   | 24%   | 432M       |
+| In Circulation   | 2.7%  | 48M        |
+| Founder          | 1%    | 18M        |
+| Burned           | 33.3% | 600M       |
 
-## 5. Tokens
+### QSC – Sweepstakes Coin
 
-### QST – Qusino Standard Token
-- **Total Supply**: 1.8 billion
-- **Utility**:
-  - 30% of platform revenue
-  - QUSINO Membership (Tier 1 / Tier 2 / Tier 3 perks)
-  - Casino-style Player’s Card (more held = better perks)
+- Fixed price: 120 Qubic  
+- Daily issuance: 1 per eligible wallet  
+- Bonus: STAR purchases → extra QSC  
+- Redemption: Must risk ≥20% of balance first  
 
-#### QST Distribution Table
-| Allocation          | %     | Amount    |
-|---------------------|-------|-----------|
-| QX Exchange         | 22%   | 396 M     |
-| Reserve             | 17%   | 306 M     |
-| Liquidity Pool (LP) | 24%   | 432 M     |
-| In Circulation      | 2.7%  | 48 M      |
-| Founder             | 1%    | 18 M      |
-| **Burned**          | **33.3%** | **600 M** |
-| **TOTAL**           | **100%** | **1.8 B** |
+### STAR – Free Play & Governance Token
 
-### QSC – Qusino Sweepstakes Coin
-- **Price**: 120 Qubic each
-- **Issuance**: 1 QSC issued daily (per eligible wallet)
-- **Earning**: Bonuses from STAR purchases
-- **Redemption Rules**:
-  - Must risk **20%** of QSC balance before eligible for redemption
-- **Exclusive Use**: Sweepstakes games only
-
-### STAR – Consensus Token
-- **Purpose**:
-  - Voting power
-  - Access to free gameplay
-- **Issuance**: 100 STAR issued daily
-- **Bonus**: 100 STAR = 1 QSC bonus
-- **Voting Requirement**: Minimum **1000 STAR** held to vote
+- Daily issuance: 100 per wallet  
+- Bonus conversion: 100 STAR → 1 QSC bonus  
+- Voting power: Min 1000 STAR to participate  
 
 ---
 
-## 6. Game Play Models Summary
+## Why approve Qusino on Qubic?
 
-| Model          | Currency | Access          | Revenue Model          |
-|----------------|----------|-----------------|------------------------|
-| **Free**       | STAR     | Free play       | None (ad / engagement) |
-| **Sweepstakes**| QSC      | Bonuses / daily | Risk 20% for redemption|
+- Drives real usage: gaming transactions, asset creation, RANDOM calls  
+- Fair & transparent: no off-chain custodians, provable via on-chain rules  
+- Revenue flywheel: multi-layer sharing rewards holders, devs, liquidity  
+- Community control: voting prevents spam/low-quality games  
+- Positions Qubic as a leader in decentralized gaming/sweepstakes  
 
----
-
-**End of Q2 2026 Architecture Outline**  
-All flows, tables, and diagrams above are directly derived from the provided specification and are ready for implementation or presentation.
+**Vote Recommendation: Option 1 – Yes Approve**  
+Enable Qusino to launch capsules, activate gameplay, and distribute revenue on-chain — bringing sustainable activity to the network.
