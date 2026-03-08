@@ -11,7 +11,7 @@ Approve the deployment and integration of the Qusino ecosystem (Game Launch Port
 
 ## Executive Summary
 
-Qusino is a decentralized gaming ecosystem built natively on Qubic, combining **free-to-play** (STAR tokens) and **sweepstakes-style** (QSC tokens) models through a community-governed **Game Launch Portal (GLP)**. It enables developers to deploy provably fair games as NFT-styled Capsules, with automatic revenue sharing (up to 33.3% to devs, plus splits to QST holders, treasury, liquidity providers, SC shareholders, and CCF). Governance occurs via STAR voting, membership perks scale with QST holdings, and all randomness uses the native RANDOM oracle for transparency.
+Qusino is a decentralized gaming ecosystem built natively on Qubic, combining **free-to-play** (STAR tokens) and **sweepstakes-style** (QSC tokens) models through a community-governed **Game Launch Portal (GLP)**. It enables developers to deploy provably fair games as NFT-styled Capsules, with automatic revenue sharing (up to 33.3% to devs, plus splits to QST holders, treasury, liquidity providers, SC shareholders, and CCF). Governance occurs via STAR voting, membership perks scale with QST holdings, and all randomness uses the native RANDOM smart contract for transparency.
 
 Approval enables real on-chain gaming activity, increases Qubic compute/asset usage, and bootstraps a revenue-generating vertical (gaming/gambling) with fair, transparent tokenomics.
 
@@ -21,7 +21,7 @@ Approval enables real on-chain gaming activity, increases Qubic compute/asset us
 
 Qubic currently lacks native, standardized infrastructure for decentralized gaming platforms with:
 
-- Provably fair RNG tied to network oracles
+- Provably fair RNG tied to RANDOM Smart Contract
 - Multi-currency models (free vs. redeemable sweepstakes)
 - Community-voted game inclusion/exclusion
 - Multi-layer revenue sharing without centralized custodians
