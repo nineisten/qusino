@@ -4,7 +4,7 @@
 Approve the deployment and integration of the Qusino ecosystem (Game Launch Portal, provably fair gaming capsules, multi-token model with STAR/QSC/QST) on the Qubic blockchain, including automatic revenue redistributions via smart contract.
 
 **Available Options**  
-- **Option 1:** Yes — Approve Qusino GLP deployment and ecosystem rules.  
+- **Option 1:** **Yes — Approve QUSINO SC deployment**
 - **Option 0:** No — Do not approve at this time.
 
 ---
