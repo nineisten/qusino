@@ -1,4 +1,4 @@
-# Proposal to Approve Qusino as a Game Launch Portal (GLP) Capsule on the Qubic Network
+# Proposal to Include Qusino Smart Contract
 
 **Proposal**  
 Approve the deployment and integration of the Qusino ecosystem (Game Launch Portal, provably fair gaming capsules, multi-token model with STAR/QSC/QST) on the Qubic blockchain, including automatic revenue redistributions via smart contract.
