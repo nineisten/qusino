@@ -1045,5 +1045,4 @@ protected:
     }
 };
 ```
-**Vote Recommendation: Option 1 – Yes Approve**  
-Enable Qusino to launch capsules, activate gameplay, and distribute revenue on-chain — bringing sustainable activity to the network.
+
