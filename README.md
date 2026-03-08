@@ -53,15 +53,12 @@ flowchart TD
 
 ```mermaid
 pie title Platform Revenue Redistribution per Game/Platform Earnings
-    "Developer" : 33.3
-    "QST Holders" : 30
-    "Treasury" : 25
-    "Liquidity Providers" : 20
-    "SC Shareholders" : 20
-    "CCF" : 5
+    "20% SC Holders" : 20
+    "30% QST Holders" : 30
+    "25% Treasury" : 25
+    "20% Liquidity Providers (LP)" : 20
+    "5% CCF" : 5
 ```
-
-*Note: Developer cap at ~33.3%; remaining split among others as shown.*
 
 ---
 
