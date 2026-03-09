@@ -94,7 +94,7 @@ pie title Smart Contract Distributions
 ```mermaid
 flowchart TD
     P[Proposal Submitted] --> E[Epoch Opens]
-    E --> V[Stake min 1000 STAR to vote]
+    E --> V[Burn min 1000 STAR to vote]
     V --> Vote[Add / Remove / Keep]
     Vote --> Result[SC enforces result]
 ```
@@ -123,7 +123,7 @@ Utility: Tiered membership (Player’s Card perks), 30% platform revenue share
 
 ### QSC – Sweepstakes Coin
 
-- Fixed price: 120 Qubic  
+- Fixed price: 100 Qubic  
 - Daily issuance: 1 per eligible wallet  
 - Bonus: STAR purchases → extra QSC  
 - Redemption: Must risk ≥20% of balance first  
