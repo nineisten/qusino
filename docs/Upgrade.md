@@ -1,3 +1,4 @@
+```markdown
 # Qubic Proposal: Qusino Upgrade — Coin Flip + RANDOM Result Bank
 
 ## Available Options
@@ -127,3 +128,61 @@ flowchart TD
   qusino2 --> settle[Draw mix and settle]
   settle --> win[Win credits QSC or STAR]
   settle --> loss[Loss keeps Qu in bank or burns STAR]
+```
+
+Frontends should poll `getRandomBankStatus()` and call `refillRandomBank()` when the reserve is empty (and the 5-tick gate is open).
+
+---
+
+## 6. Testing (as stated on the PR)
+
+40 GoogleTest cases in `contract_qusino.cpp` (up from 32), covering:
+
+- bank refill success / failure / rate-limit / insufficient-bankroll,
+- Coin Flip validation (bad guess, asset type, bet size, balances),
+- QSC settlement (win credit, loss top-up, bankroll gating),
+- STAR settlement (mint / burn, no bankroll interaction),
+- bankroll cap and overflow-to-`epochRevenue`.
+
+PR author reports all passing. Core reviewer (`fnordspace`) approved the integration **with the explicit note that core does not review contract game logic** and that the author must ensure the contract behaves as intended. Quorum approval is the governance step that authorizes shipping that logic.
+
+---
+
+## 7. Risks and mitigations
+
+| Risk | Mitigation |
+|---|---|
+| Empty RNG bank → failed bets | Explicit `QUSINO_RNG_NOT_READY`; permissionless refill; frontend status view. |
+| Wasted RANDOM fees | Refill refused while reserve still has unused values. |
+| Refill spam | 5-tick rate limit + `QUSINO_RNG_REFILL_TOO_SOON`. |
+| Bankroll insolvency on QSC wins | Reject bet unless `bonusAmount` covers full payout. |
+| Unbounded bonus treasury | 2.4B Qu cap; excess to `epochRevenue`. |
+| Shared bonus / game treasury | Documented; owner funds via `depositBonus`; daily bonus and Coin Flip compete for the same pool. |
+| Predictable draws | Entropy from RANDOM; per-draw context mix + re-hash; consumed slots replaced from reserve. |
+| Future games needing more state | Bank arrays already dimensioned for 32 games; only `QUSINO_RNG_ACTIVE_GAMES` needs bumping when a new title is proposed. |
+| Logic bugs in payout math | 40 unit tests; 1.96× payout constant is explicit; minimum bet set to 3 in final commits. |
+
+This upgrade does **not** move Qusino to raw-Qu table stakes. It does **not** change GQMPROP, CCF, or RANDOM themselves beyond Qusino calling RANDOM as a client.
+
+---
+
+## 8. Acceptance criteria
+
+Vote **Yes (option 1)** only if all of the following are acceptable:
+
+1. Qusino may change user-visible logic to add Coin Flip and the Result Bank as described in PR #998.
+2. `bonusAmount` may be shared between daily-claim-bonus and the game / RANDOM bankroll, capped at 2.4B Qu with overflow to epoch revenue.
+3. Coin Flip may mint/burn STAR and credit/debit QSC as specified, with a ~2% house edge (1.96× payout) and minimum bet 3.
+4. State padding / layout update for `QUSINO_CONTRACT_INDEX` may ship in the next core release that includes this PR after a successful vote.
+5. No further scope (Blackjack, Baccarat, raw-Qu bets) is authorized by this proposal.
+
+If any criterion fails, vote **No (option 0)**. A revised PR and proposal can follow.
+
+---
+
+## 9. References
+
+- Implementation PR: https://github.com/qubic/core/pull/998
+- Diff of contract source: https://github.com/qubic/core/pull/998/changes#diff-ded22da873f9c5eb2df95bf335fe7d61cb3882eeda1060c7c70804d180085c51
+- Original Qusino inclusion PR: https://github.com/qubic/core/pull/762
+```

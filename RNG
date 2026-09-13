@@ -1,0 +1,93 @@
+**QUSINO Randomness Upgrade Outline**  
+
+### 1. High-Level Goal
+Centralize all RANDOM SC calls inside QUSINO so individual game capsules never need to call RANDOM themselves.  
+Capsules request **one single provably fair random value** on demand, instantly, while QUSINO maintains a pre-filled bank of entropy behind the scenes.
+
+### 2. Core Components
+
+- **Result Bank** (managed exclusively by QUSINO)
+  - Multiple **per-game Pools** — one pool for each supported game/capsule type.
+  - One shared **Overflow Reserve** — acts as a hot-swap buffer of fresh random values.
+  - Each pool is a fixed-size collection of random values.
+  - Reserve holds extra values ready for immediate replacement.
+
+- **QUSINO Random Interface** (exposed to capsules)
+  - Single function: `getRandom(gameId, optionalUserSalt)`
+  - Returns exactly **one** random value per call.
+
+- **Refresh System**
+  - Hybrid event-driven + periodic refresh logic.
+
+### 3. Operational Flow (Single-Value Draw)
+
+1. Capsule needs randomness → calls QUSINO.`getRandom(gameId, userSalt)`.
+2. QUSINO locates the correct game pool.
+3. QUSINO generates strong on-chain entropy using:
+   - Previous tick hash
+   - Capsule address
+   - User-provided salt
+   - Pool nonce
+   - Current tick
+4. QUSINO randomly selects **one index** inside the pool using the entropy.
+5. The selected value is returned immediately to the capsule.
+6. QUSINO removes that value and **instantly replaces it** with a fresh value pulled from the Overflow Reserve.
+7. Reserve pointer moves forward (circular buffer).
+8. If reserve drops below a safe threshold → flag for refresh.
+
+This entire process is atomic — one transaction, one value delivered, pool size stays constant.
+
+### 4. Reserve Interaction
+
+- Acts as the immediate replenishment source for every consumed pool value.
+- Keeps every pool topped up at all times.
+- Serves as a safety buffer during high-load periods.
+- When reserve runs low, the refresh system automatically refills it first, then tops up any low pools.
+
+### 5. Refresh Mechanism
+
+- **Trigger Conditions**:
+  - Every N pulls (event-driven)
+  - When any pool or the reserve falls below minimum threshold
+  - Periodic check based on Qubic ticks (e.g., every X ticks)
+
+- **Refresh Process**:
+  1. QUSINO makes a bulk call to the RANDOM SC.
+  2. Receives a batch of new random values.
+  3. (Optional) Shuffles the new batch.
+  4. Fully replaces the Overflow Reserve.
+  5. Uses the new reserve to top up any under-filled game pools.
+  6. Updates timestamps/nonces.
+
+- Refresh can be permissionless (anyone can trigger it) but is rate-limited to avoid spam.
+
+### 6. Security & Fairness Features
+
+- **MEV / Front-running Resistance**:
+  - Index selection entropy is only resolved at execution time inside the current tick.
+  - Previous tick hash + user salt prevents prediction.
+  - Qubic’s tick-based scheduling and lack of gas auctions greatly reduce traditional front-running.
+
+- **Verifiability**:
+  - Every pull emits a clear on-chain event (gameId, value used, tick).
+  - Full history of bank fills and consumptions is publicly auditable.
+  - Players can replay any game’s randomness chain.
+
+- **Fallbacks**:
+  - If a pool is somehow empty → direct reserve pull.
+  - Optional high-stakes bypass mode (direct RANDOM call, higher cost).
+
+- **Governance**:
+  - Adjustable pool sizes, reserve size, and refresh intervals.
+  - Upgradeable via QUSINO’s existing governance.
+
+### 7. Benefits of This Design
+
+- Capsules stay extremely simple and lightweight.
+- Instant randomness for real-time gameplay.
+- Strong provable fairness maintained centrally.
+- Efficient use of RANDOM SC calls (bulk + amortized).
+- Pools never run dry from the capsule’s perspective.
+- Scalable as more games/capsules are added.
+
+This architecture keeps the performance advantage of pre-banked randomness while preserving (and even strengthening) transparency and unpredictability for players.
