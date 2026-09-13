@@ -168,7 +168,7 @@ This upgrade does **not** move Qusino to raw-Qu table stakes. It does **not** ch
 
 ## 8. Acceptance criteria
 
-Vote **Yes (option 1)** only if all of the following are acceptable:
+Vote **Yes (option 1)** if the following is acceptable:
 
 1. Qusino may change user-visible logic to add Coin Flip and the Result Bank as described in PR #998.
 2. `bonusAmount` may be shared between daily-claim-bonus and the game / RANDOM bankroll, capped at 2.4B Qu with overflow to epoch revenue.
