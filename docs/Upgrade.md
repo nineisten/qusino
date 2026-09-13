@@ -1,4 +1,4 @@
-```markdown
+
 # Qubic Proposal: Qusino Upgrade — Coin Flip + RANDOM Result Bank
 
 ## Available Options
@@ -185,4 +185,3 @@ If any criterion fails, vote **No (option 0)**. A revised PR and proposal can fo
 - Implementation PR: https://github.com/qubic/core/pull/998
 - Diff of contract source: https://github.com/qubic/core/pull/998/changes#diff-ded22da873f9c5eb2df95bf335fe7d61cb3882eeda1060c7c70804d180085c51
 - Original Qusino inclusion PR: https://github.com/qubic/core/pull/762
-```
