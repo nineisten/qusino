@@ -131,8 +131,6 @@ flowchart TD
   settle --> loss[Loss keeps Qu in bank or burns STAR]
 ```
 
-Frontends should poll `getRandomBankStatus()` and call `refillRandomBank()` when the reserve is empty (and the 5-tick gate is open).
-
 ---
 
 ## 6. Testing (as stated on the PR)
