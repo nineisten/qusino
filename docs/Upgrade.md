@@ -121,7 +121,8 @@ Exact construction epoch is set by core when the approved code is scheduled; thi
 
 ```mermaid
 flowchart TD
-  anyone[Anyone] -->|refillRandomBank| qusino[Qusino]
+    
+  bot[randomprovider bot] -->|refillRandomBank| qusino[Qusino]
   qusino -->|buy entropy| random[RANDOM]
   random -->|256 bits| bank[Reserve and Coin Flip pool]
   player[Player] -->|coinFlip QSC or STAR| qusino2[Qusino]
