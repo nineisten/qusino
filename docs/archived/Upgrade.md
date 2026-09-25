@@ -3,7 +3,7 @@
 ## Available Options
 
 - **Option 0:** No — do not approve this Qusino upgrade.
-- **Option 1:** **Yes** — approve the Qusino upgrade (Coin Flip game, RANDOM Result Bank, removal of QST dividends, and reallocation of the former QST revenue slice to SC shares) as specified in [core PR #998](https://github.com/qubic/core/pull/998) plus the QST / revenue changes described here.
+- **Option 1:** Yes — approve the Qusino upgrade (Coin Flip game, RANDOM Result Bank, removal of QST dividends, and reallocation of the former QST revenue slice to SC shares) as specified in [core PR #998](https://github.com/qubic/core/pull/998) plus the QST / revenue changes described here.
 
 ---
 
@@ -20,9 +20,9 @@ The upgrade does four tightly coupled things:
 
 **Why the QST change.** QST dividends created a yield / investment profile on a token that also gates a chance-game platform. To keep Qusino operable under the gambling and securities rules of the **targeted jurisdictions**, QST must not pay protocol dividends. Membership / VIP utility only is the intended legal posture. This proposal does not give legal advice; it records that product constraint as the governance reason for the cut.
 
-The Coin Flip / Result Bank change is implemented in [qubic/core PR #998](https://github.com/qubic/core/pull/998) (`src/contracts/Qusino.h`, tests in `test/contract_qusino.cpp`). Because the contract state struct changes, `contract_def.h` registers a **RESET** for `QUSINO_CONTRACT_INDEX` (not PADDING): `{ QUSINO_CONTRACT_INDEX, RESET, 232 }`. RESET discards the saved Qusino state and zero-fills the buffer. Core review has approved the integration shape; because contract **logic** (and state handling) change, quorum approval is required before merge / inclusion.
+The Coin Flip / Result Bank change is implemented in [qubic/core PR #998](https://github.com/qubic/core/pull/998) (`src/contracts/Qusino.h`, tests in `test/contract_qusino.cpp`, and a `PADDING` state-layout marker for `QUSINO_CONTRACT_INDEX` in `contract_def.h`). Core review has approved the integration shape; because contract **logic** changes, quorum approval is required before merge / inclusion.
 
-Existing flows that remain after the reset and re-init path: STAR / QSC mechanics, QST **sale and redemption** (inventory, not yield), game-proposal voting, daily claim bonus, and epoch revenue to **LP, CCF, treasury, and Qusino SC shareholders**. What does **not** remain: the QST holder dividend loop.
+Existing flows that remain: STAR / QSC mechanics, QST **sale and redemption** (inventory, not yield), game-proposal voting, daily claim bonus, and epoch revenue to **LP, CCF, treasury, and Qusino SC shareholders**. What does **not** remain: the QST holder dividend loop.
 
 `bonusAmount` is reused as the Qu bankroll that funds RANDOM refill fees and QSC win settlement.
 
@@ -57,7 +57,7 @@ SC shareholder dividends via `qpi.distributeDividends` remain the only on-contra
 
 1. **Instant settlement** — a bet resolves in one user procedure; no pending RANDOM ticket for the player.
 2. **RANDOM-backed, not computor-grindable at bet time** — entropy originates from RANDOM in bulk; each draw is context-mixed and re-hashed so a consumed value cannot be predicted or replayed.
-3. **Reusable bank** — sized for up to 32 games (`QUSINO_RNG_MAX_GAMES`) with 1 active game at launch (`QUSINO_RNG_ACTIVE_GAMES`), so later titles do not need another state-layout change for the bank itself.
+3. **Reusable bank** — sized for up to 32 games (`QUSINO_RNG_MAX_GAMES`) with 1 active game at launch (`QUSINO_RNG_ACTIVE_GAMES`), so later titles do not need another padding / layout change for the bank itself.
 4. **No raw-Qu wagers** — Coin Flip accepts QSC or STAR only.
 5. **Solvency first** — a QSC bet is rejected unless the Qu bankroll can already cover the full win; wins cannot underflow `bonusAmount`.
 6. **Capped bankroll** — deposits / loss top-ups that would push `bonusAmount` past `QUSINO_GAME_BANKROLL_CAP` (2.4B Qu) overflow into `epochRevenue`.
@@ -162,24 +162,13 @@ Reused where they already fit: `QUSINO_INSUFFICIENT_BONUS_AMOUNT`, `QUSINO_WRONG
 
 No return code is required for “QST dividend removed”; that path does not run.
 
-### 4.7 State handling: RESET, not PADDING
+### 4.7 State layout
 
-This upgrade does **not** use a `PADDING` entry for Qusino.
+`contract_def.h` records `{ QUSINO_CONTRACT_INDEX, PADDING, 231 }` (alongside the existing NOST migrate entry in the same table on that branch). Computors should treat this as a **state-layout change** that must land in a defined epoch via the normal core-release / construction process after a successful vote.
 
-`contract_def.h` records:
+Exact construction epoch is set by core when the approved code is scheduled; this proposal authorizes **including this logic**, not a specific calendar epoch number.
 
-`{ NOST_CONTRACT_INDEX, MIGRATE, 230 }, { QUSINO_CONTRACT_INDEX, RESET, 232 }`
-
-In core terms:
-
-- **PADDING** keeps old saved bytes and zero-fills only new tail bytes (struct grew; old fields preserved).
-- **RESET** discards the saved state entirely and zeros the whole buffer.
-
-Qusino uses **RESET**. Pre-upgrade on-contract Qusino state (maps, lists, `bonusAmount`, `epochRevenue`, RNG bank, etc.) is **not** migrated field-by-field. It is wiped at the change epoch recorded in that table (232 on the current PR branch). Exact epoch is still set by core when the approved code is scheduled; this proposal authorizes **RESET + the new logic**, not a promise that the number will never be adjusted in the release commit.
-
-After RESET, the contract runs with a clean buffer. Owner / operator setup that lived only in contract state (addresses, bonus deposit, sale inventory tracked in-contract, open game list, etc.) must be re-established through the existing procedures. QST, QSC, and STAR balances that live as Qubic assets outside that wiped struct are not themselves the RESET target; only Qusino’s contract state file is.
-
-This proposal authorizes including that RESET with the new logic. It does not authorize a silent PADDING migrate of old Qusino fields.
+Removing the QST dividend loop is a **logic** change in scope of this vote. Extra padding is only required if the implementation deletes or repacks related fields; if those slots are simply unused, existing padding from PR #998 is enough.
 
 ---
 
@@ -221,7 +210,7 @@ epoch -->|20 / 5 / 25| lpccft[LP / CCF / treasury]
 - QST sale and redemption still succeed;
 - a wallet holding only QST receives no epoch Qu from Qusino.
 
-PR author reports the Coin Flip / bank suite passing. Core reviewer (`fnordspace`) approved the integration **with the explicit note that core does not review contract game logic** and that the author must ensure the contract behaves as intended. Quorum approval is the governance step that authorizes shipping that logic, including QST dividend removal, the 50% SC-share split, and the Qusino **RESET**.
+PR author reports the Coin Flip / bank suite passing. Core reviewer (`fnordspace`) approved the integration **with the explicit note that core does not review contract game logic** and that the author must ensure the contract behaves as intended. Quorum approval is the governance step that authorizes shipping that logic, including QST dividend removal and the 50% SC-share split.
 
 ---
 
@@ -241,7 +230,6 @@ PR author reports the Coin Flip / bank suite passing. Core reviewer (`fnordspace
 | QST holders expected yield | Explicit product change for targeted-jurisdiction compliance; no silent cut. |
 | Larger SC-share dividend (50%) | Same `distributeDividends` primitive; tests must check the 50/67600 rate. |
 | Legal residual risk | QST has no dividend; membership only. This is not a legal opinion. |
-| RESET wipes live Qusino state | Documented; not PADDING. Operator must re-fund `bonusAmount` and re-set in-contract config after the change epoch. Asset balances that are not in the Qusino state struct are out of scope of RESET. |
 
 This upgrade does **not** move Qusino to raw-Qu table stakes. It does **not** change GQMPROP, CCF, or RANDOM themselves beyond Qusino calling RANDOM as a client. It does **not** burn, recall, or reprice existing QST; it stops using QST as a dividend asset.
 
@@ -254,7 +242,7 @@ Vote **Yes (option 1)** if the following is acceptable:
 1. Qusino may change user-visible logic to add Coin Flip and the Result Bank as described in PR #998.
 2. `bonusAmount` may be shared between daily-claim-bonus and the game / RANDOM bankroll, capped at 2.4B Qu with overflow to epoch revenue.
 3. Coin Flip may mint/burn STAR and credit/debit QSC as specified, with a ~2% house edge (1.96× payout) and minimum bet 3.
-4. Qusino state may be **RESET** (not PADDING) via `{ QUSINO_CONTRACT_INDEX, RESET, 232 }` in `contract_def.h`, shipping in the core release that includes this PR after a successful vote. Saved Qusino contract state is discarded and zeroed; it is not a preserve-old-fields pad.
+4. State padding / layout update for `QUSINO_CONTRACT_INDEX` may ship in the next core release that includes this PR after a successful vote.
 5. **QST holder dividends are removed** so QST is not a revenue-share token in targeted jurisdictions. `END_EPOCH` must not pay Qu to QST possessors.
 6. QST is authorized only as a **Membership / VIP** token (perks; sale/redemption inventory). That limitation is the stated reason for (5).
 7. The former **30% QST slice is paid to Qusino SC shareholders**, making the shareholder share **50%**. LP 20%, CCF 5%, treasury 25% unchanged. Totals 100%.
@@ -268,7 +256,6 @@ If any criterion fails, vote **No (option 0)**. A revised PR and proposal can fo
 
 - Implementation PR: https://github.com/qubic/core/pull/998
 - Diff of contract source: https://github.com/qubic/core/pull/998/changes#diff-ded22da873f9c5eb2df95bf335fe7d61cb3882eeda1060c7c70804d180085c51
-- State-change table on the PR: `{ QUSINO_CONTRACT_INDEX, RESET, 232 }` in `contract_def.h`
 - Original Qusino inclusion PR: https://github.com/qubic/core/pull/762
 - Current Qusino source (QST dividend loop, `QUSINO_QST_HOLDERS_DIVIDENDS_PERCENT = 30`, `QUSINO_SHAREHOLDERS_DIVIDENDS_PERCENT = 20`): https://github.com/qubic/core/blob/main/src/contracts/Qusino.h
 
