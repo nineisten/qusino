@@ -162,7 +162,7 @@ Reused where they already fit: `QUSINO_INSUFFICIENT_BONUS_AMOUNT`, `QUSINO_WRONG
 
 No return code is required for “QST dividend removed”; that path does not run.
 
-### 4.7 State handling: RESET, not PADDING
+### 4.7 State handling: RESET
 
 This upgrade does **not** use a `PADDING` entry for Qusino.
 
