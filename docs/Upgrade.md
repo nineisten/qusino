@@ -3,7 +3,7 @@
 ## Available Options
 
 - **Option 0:** No — do not approve this Qusino upgrade.
-- **Option 1:** Yes — approve the Qusino upgrade (Coin Flip game, RANDOM Result Bank, 14-epoch QST beta gate, removal of QST dividends, and reallocation of the former QST revenue slice to SC shares) as specified in [core PR #998](https://github.com/qubic/core/pull/998) plus the QST / revenue changes described here.
+- **Option 1:** **Yes** — approve the Qusino upgrade (Coin Flip game, RANDOM Result Bank, 14-epoch QST beta gate, removal of QST dividends, and reallocation of the former QST revenue slice to SC shares) as specified in [core PR #998](https://github.com/qubic/core/pull/998) plus the QST / revenue changes described here.
 
 ---
 
